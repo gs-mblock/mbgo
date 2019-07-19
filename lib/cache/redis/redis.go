@@ -37,8 +37,7 @@ import (
 	"time"
 
 	"github.com/gomodule/redigo/redis"
-
-	"github.com/astaxie/beego/cache"
+	"mbgo/lib/cache"
 	"strings"
 )
 

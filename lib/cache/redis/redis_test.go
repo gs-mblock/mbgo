@@ -17,8 +17,8 @@ package redis
 import (
 	"testing"
 	"time"
-	//"mbgo/lib/cache"
-	"github.com/astaxie/beego/cache"
+	"mbgo/lib/cache"
+	//"github.com/astaxie/beego/cache"
 	"github.com/gomodule/redigo/redis"
 )
 

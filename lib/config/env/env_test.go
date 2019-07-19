@@ -72,4 +72,7 @@ func TestEnvGetAll(t *testing.T) {
 	if len(envMap) == 0 {
 		t.Error("expected environment not empty.")
 	}
+	// for key, val := range envMap {
+	// 	println(key, val)
+	// }
 }

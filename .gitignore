@@ -1,4 +1,5 @@
 go.sum
 .vscode
-/log/
+lib/logs/*.log
 build/
+# *.log

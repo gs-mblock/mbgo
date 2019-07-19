@@ -21,12 +21,14 @@ import (
 	"os"
 	"strings"
 
-	"github.com/astaxie/beego/utils"
+	"mbgo/lib/utils"
 )
 
 var env *utils.BeeMap
 
+// init :默认会运行 init
 func init() {
+	println("env init")
 	env = utils.NewBeeMap()
 	for _, e := range os.Environ() {
 		splits := strings.Split(e, "=")
