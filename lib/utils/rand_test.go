@@ -19,7 +19,8 @@ import "testing"
 func TestRand_01(t *testing.T) {
 	bs0 := RandomCreateBytes(16)
 	bs1 := RandomCreateBytes(16)
-
+	println("[TEST]bs0=",string(bs0))
+	println("[TEST]bs1=",string(bs1))
 	t.Log(string(bs0), string(bs1))
 	if string(bs0) == string(bs1) {
 		t.FailNow()

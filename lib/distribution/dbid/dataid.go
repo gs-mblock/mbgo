@@ -1,4 +1,4 @@
-package distribution
+package dbid
 
 import "time"
 
@@ -15,7 +15,7 @@ mysql.bigint= 9223372036854775807  19位数 -> 2262-04-12 07:47:16
 	//id := timestamp //+ int64(rand.Intn(100)*100) + (serviceID*10) + businessID  //结果：58608101
 */
 // DataID 分布式 id : 简化版
-func DataID(businessID int64, serviceID int64) int64 {
-	id := (time.Now().UnixNano()-1559787483440530000)/1000*1000 + (businessID * 100) + serviceID //结果:3651562136279401  ,13+位数
+func DataID(businessID int, serviceID int) int64 {
+	id := (time.Now().UnixNano()-1559787483440530000)/1000*1000 + int64(businessID * 100) + int64(serviceID) //结果:3651562136279401  ,13+位数
 	return id
 }
