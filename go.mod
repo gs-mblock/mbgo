@@ -15,5 +15,6 @@ require (
 	github.com/gogo/protobuf v1.2.1
 	github.com/gomodule/redigo v2.0.0+incompatible
 	github.com/shiena/ansicolor v0.0.0-20151119151921-a422bbe96644
+	github.com/sqs/goreturns v0.0.0-20181028201513-538ac6014518 // indirect
 	github.com/ssdb/gossdb v0.0.0-20180723034631-88f6b59b84ec
 )
