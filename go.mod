@@ -1,4 +1,4 @@
-module mbgo
+module github.com/gs-mblock/mbgo
 
 go 1.12
 
