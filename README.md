@@ -8,6 +8,3 @@
 go mod tidy
 go run lib/main.go
 ```
-
-## 打包，发布
-
