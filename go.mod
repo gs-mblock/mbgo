@@ -1,10 +1,12 @@
 // module mbgo
 module gitlab.com/makeblock-common/mbgo
+
 // module github.com/gs-mblock/mbgo
 
 go 1.12
 
 require (
+	cloud.google.com/go v0.43.0 // indirect
 	github.com/OwnLocal/goes v1.0.0
 	github.com/astaxie/beego v1.12.0
 	github.com/cloudflare/golz4 v0.0.0-20150217214814-ef862a3cdc58
@@ -15,5 +17,7 @@ require (
 	github.com/go-xorm/xorm v0.7.1
 	github.com/gogo/protobuf v1.2.1
 	github.com/gomodule/redigo v2.0.0+incompatible
+
 	github.com/shiena/ansicolor v0.0.0-20151119151921-a422bbe96644
+	gopkg.in/mgo.v2 v2.0.0-20180705113604-9856a29383ce
 )

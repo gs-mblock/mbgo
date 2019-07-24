@@ -1,4 +1,4 @@
-package ts1
+package gosql
 /**
 1. https://juejin.im/post/5b9222d5e51d450e697317b4
 2. https://my.oschina.net/u/3553591/blog/1630617

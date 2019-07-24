@@ -1,4 +1,4 @@
-package ts1
+package gosql
 /**
 原起的方法
 https://my.oschina.net/u/3553591/blog/1630617
@@ -24,7 +24,7 @@ type userTB struct {
 	Age  sql.NullInt64
 }
 
-func main() {
+func tsmain() {
 	var err error
 	dbw := DbWorker{
 		Dsn: "root:123456@tcp(localhost:3306)/sqlx_db?charset=utf8mb4",

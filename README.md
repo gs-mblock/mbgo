@@ -9,6 +9,9 @@ go mod tidy
 go run lib/main.go
 ```
 
+other
+go get gopkg.in/mgo.v2
+
 ## 简介
 
 go 常用的库

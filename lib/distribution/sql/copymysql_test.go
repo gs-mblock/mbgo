@@ -6,8 +6,9 @@ import (
 	"github.com/go-xorm/xorm"
 	_ "github.com/go-sql-driver/mysql"
 	"time"
-	"mbgo/lib/utils"
-	"mbgo/lib/distribution/dbid"
+	"gitlab.com/makeblock-common/mbgo/lib/utils"
+	"gitlab.com/makeblock-common/mbgo/lib/distribution/dbid"
+
 	"strconv"
 	"bytes"
 )
