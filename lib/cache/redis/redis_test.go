@@ -18,12 +18,11 @@ import (
 	"testing"
 	"time"
 	"mbgo/lib/cache"
-	//"github.com/astaxie/beego/cache"
 	"github.com/gomodule/redigo/redis"
 )
 
 func TestRedisCache(t *testing.T) {
-	bm, err := cache.NewCache("redis", `{"conn": "localhost:6379"}`)
+	bm, err := cache.NewCache("redis", `{"conn": "Makeblock123@localhost:6379"}`)
 	if err != nil {
 		println(err)
 		t.Error("init err")
