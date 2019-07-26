@@ -14,8 +14,14 @@
 
 package utils
 
+
 import "testing"
 
+func TestMail2(t *testing.T) {
+
+}
+
+/*
 func TestMail(t *testing.T) {
 	config := `{"username":"astaxie@gmail.com","password":"astaxie","host":"smtp.gmail.com","port":587}`
 	mail := NewEMail(config)
@@ -39,3 +45,4 @@ func TestMail(t *testing.T) {
 	mail.AttachFile("/Users/astaxie/github/beego/beego.go")
 	mail.Send()
 }
+*/

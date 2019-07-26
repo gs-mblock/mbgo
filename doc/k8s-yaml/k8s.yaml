@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mbusercenter
+  labels:
+    app: mbusercenter
+spec:
+  ports:
+  - name: grpc
+    port: 3001
+    targetPort: 3001
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 8041
+  selector:
+    app: mbusercenter
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: mbusercenter
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mbusercenter
+        version: v1
+    spec:
+      containers:
+      - image: liam1803/mb-user-center:1.0.04
+        imagePullPolicy: Always
+        name: mbusercenter
+        ports:
+        - containerPort: 3001
+        - containerPort: 8041

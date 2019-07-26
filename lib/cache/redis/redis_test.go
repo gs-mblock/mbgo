@@ -17,7 +17,7 @@ package redis
 import (
 	"testing"
 	"time"
-	"mbgo/lib/cache"
+	"gitlab.com/makeblock-common/mbgo/lib/cache"
 	"github.com/gomodule/redigo/redis"
 )
 
@@ -27,7 +27,7 @@ func TestRedisCache(t *testing.T) {
 		println(err)
 		t.Error("init err")
 	}
-	timeoutDuration := 10 * time.Second
+	timeoutDuration := 2 * time.Second
 	if err = bm.Put("astaxie", 1, timeoutDuration); err != nil {
 		t.Error("set Error", err)
 	}
@@ -35,7 +35,7 @@ func TestRedisCache(t *testing.T) {
 		t.Error("check err")
 	}
 
-	time.Sleep(11 * time.Second)
+	time.Sleep(3 * time.Second)
 
 	if bm.IsExist("astaxie") {
 		t.Error("check err")

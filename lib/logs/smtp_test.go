@@ -16,12 +16,16 @@ package logs
 
 import (
 	"testing"
-	"time"
+	//"time"
 )
 
-func TestSmtp(t *testing.T) {
-	log := NewLogger(10000)
-	log.SetLogger("smtp", `{"username":"beegotest@gmail.com","password":"xxxxxxxx","host":"smtp.gmail.com:587","sendTos":["xiemengjun@gmail.com"]}`)
-	log.Critical("sendmail critical")
-	time.Sleep(time.Second * 30)
+// func TestSmtp(t *testing.T) {
+// 	log := NewLogger(10000)
+// 	log.SetLogger("smtp", `{"username":"beegotest@gmail.com","password":"xxxxxxxx","host":"smtp.gmail.com:587","sendTos":["xiemengjun@gmail.com"]}`)
+// 	log.Critical("sendmail critical")
+// 	time.Sleep(time.Second * 30)
+// }
+
+func TestSmtp2(t *testing.T) {
+
 }

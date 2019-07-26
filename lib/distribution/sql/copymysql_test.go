@@ -176,9 +176,9 @@ func arrayToString(A []int64, delim string) string {
 }
 
 
-func TestSql111(t *testing.T){
-	var ids []int64 
-	ids = append(ids, 12)
-	ids = append(ids, 22312)
-	addData2ToData1(nil,nil, ids)
-}
+// func TestSql111(t *testing.T){
+// 	var ids []int64 
+// 	ids = append(ids, 12)
+// 	ids = append(ids, 22312)
+// 	addData2ToData1(nil,nil, ids)
+// }

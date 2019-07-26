@@ -37,7 +37,7 @@ import (
 	"time"
 
 	"github.com/gomodule/redigo/redis"
-	"mbgo/lib/cache"
+	"gitlab.com/makeblock-common/mbgo/lib/cache"
 	"strings"
 )
 

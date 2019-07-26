@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 )
-func Test_JWT(t *testing.T) {
+func TestJwt(t *testing.T) {
 	// creat
 	j := NewJWT("")
 	claims := CustomClaims{

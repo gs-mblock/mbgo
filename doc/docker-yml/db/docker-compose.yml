@@ -1,0 +1,76 @@
+version: '3'
+services:
+  # python36:
+  #   image: python:3.6
+  #   volumes:
+  #       - ~/db/docker/d1/python3:/db
+  #   tty: true 
+    
+  # golang:
+  #     build: ./golang
+  #     ports:
+  #       - "8304:8401"
+  #     volumes:
+  #       - $HOME/Downloads/pro/gitgo:/go
+  #     tty: true 
+
+  sv-nginx:
+        restart: always
+        image: nginx
+        ports:
+          - "8081:80"
+        volumes:
+          - ~/db/docker/d1/nginx/mydata:/mydata
+          #- ~/db/docker/d1/nginx/html:/usr/share/nginx/html
+          - ~/db/docker/d1/nginx/help/nginx:/etc/nginx
+
+  mysql2:
+        image: mysql
+        #container_name: mysql-db # 容器名
+        command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci #设置utf8字符集
+        restart: always
+        environment:
+          MYSQL_ROOT_PASSWORD: 1234qwer #root管理员用户密码
+          MYSQL_USER: webuser   #创建test用户
+          MYSQL_PASSWORD: webuser123  #设置test用户的密码
+          MYSQL_DATABASE: test
+        ports:
+          - '6606:3306'  #host物理直接映射端口为6606
+        volumes:
+          - $HOME/db/docker/d1/mysql:/var/lib/mysql
+
+  mysql:
+        #构建mysql镜像
+        image: mysql
+        #container_name: mysql-db # 容器名
+        command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci #设置utf8字符集
+        restart: always
+        environment:
+          MYSQL_ROOT_PASSWORD: 1234qwer #root管理员用户密码
+          MYSQL_USER: webuser   #创建test用户
+          MYSQL_PASSWORD: webuser123  #设置test用户的密码
+          MYSQL_DATABASE: test
+        ports:
+          - '3306:3306'  #host物理直接映射端口为6606
+        volumes:
+          - $HOME/db/docker/d1/mysql3306:/var/lib/mysql
+
+  mongodb:
+      image: mongo
+      restart: always
+      environment:
+       - MONGO_INITDB_ROOT_USERNAME=admin
+       - MONGO_INITDB_ROOT_PASSWORD=1234qwer
+      ports:
+        - "27017:27017"
+      volumes:
+        - $HOME/db/docker/d1/mongodata:/data/db
+
+  redis:
+      image: redis
+      #container_name: my_redis
+      command: redis-server --requirepass Makeblock123
+      ports:
+        - "6379:6379"
+      volumes:
+        - $HOME/db/docker/d1/redis:/data
