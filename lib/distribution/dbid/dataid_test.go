@@ -60,9 +60,18 @@ func Test_Time(t *testing.T) {
 	println("time Z1:", tz2)
 }
 
+// int to 时间
 func Test_IntToTime(t *testing.T) {
-	var t1 int64 = 1565009204
+	var t1 int64 = 1529769599
 	formatTimeStr1 := time.Unix(t1, 0).Format("2006-01-02 15:04:05")
 
 	println(formatTimeStr1)
+}
+
+// 时间 to int
+func Test_Time2Int(t *testing.T) {
+	//从字符串转为时间戳，第一个参数是格式，第二个是要转换的时间字符串
+	tm2, _ := time.Parse("2006-01-02 15:04:05", "2019-03-01 00:00:00") // 0时区
+	t1 := tm2.Unix()                                                   // 1546300800                                              // 1546300800000000000
+	println("time U1:", t1)
 }
