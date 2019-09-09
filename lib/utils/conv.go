@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"encoding/json"
 	"fmt"
 	"strconv"
 	"strings"
@@ -27,4 +28,27 @@ func StringToInt64Array(idString string, delim string) []int64 {
 		}
 	}
 	return list
+}
+
+// ArrayInt64Contains :array 是否存在某值
+func ArrayInt64Contains(list []int64, item int64) bool {
+	if len(list) <= 0 {
+		return false
+	}
+	for _, v := range list {
+		if v == item {
+			return true
+		}
+	}
+	return false
+}
+
+// StructToString :
+func StructToString(i interface{}) string {
+	out, err := json.Marshal(i)
+	if err != nil {
+		panic(err)
+	}
+	//fmt.Println(string(out))
+	return string(out)
 }
