@@ -35,6 +35,14 @@ func TestConvString2Other(t *testing.T) {
 	// bool to string
 	sb := strconv.FormatBool(true)
 	println("bool to string:", sb)
+
+	// string to byte
+	str := "test"
+	dataByte := []byte(str)
+	fmt.Println("byte:", dataByte)
+	// byte to string
+	strByte := string(dataByte[:])
+	fmt.Println("st:", strByte)
 }
 
 func Test_ArrayToString(t *testing.T) {

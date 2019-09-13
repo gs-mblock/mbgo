@@ -52,3 +52,11 @@ func StructToString(i interface{}) string {
 	//fmt.Println(string(out))
 	return string(out)
 }
+
+// BoolToInt :
+func BoolToInt(v bool) int {
+	if v {
+		return 1
+	}
+	return 0
+}
