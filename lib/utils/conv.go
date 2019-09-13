@@ -60,3 +60,16 @@ func BoolToInt(v bool) int {
 	}
 	return 0
 }
+
+// StringToMapList :
+func StringToMapList(str string) ([]map[string]interface{}, error) {
+	//str := `[{"status": "success", "type": "masterInfo", "result": "[{read: 2.0, write: 1.2}, {read_mb: 4.0, write: 3.2}]"}]`
+	var m []map[string]interface{}
+	err := json.Unmarshal([]byte(str), &m)
+	if nil != err {
+		//fmt.Println(err)
+		return nil, err
+	}
+	//fmt.Println(m)
+	return m, nil
+}

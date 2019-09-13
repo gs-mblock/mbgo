@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"encoding/json"
 	"fmt"
 	"strconv"
 	"testing"
@@ -82,4 +83,22 @@ func TestStructToString(t *testing.T) {
 	}
 	s := StructToString(server)
 	println(s)
+}
+
+func TestConvent_StringToMap(t *testing.T) {
+	str := `[{"status": "success", "type": "masterInfo", "result": "[{read: 2.0, write: 1.2}, {read_mb: 4.0, write: 3.2}]"}]`
+	var m []map[string]interface{}
+	err := json.Unmarshal([]byte(str), &m)
+	if nil != err {
+		fmt.Println(err)
+		return
+	}
+	fmt.Println(m)
+}
+
+func TestConvent_StringToMapList(t *testing.T) {
+	str := `[{"status": "success", "type": "masterInfo", "result": "[{read: 2.0, write: 1.2}, {read_mb: 4.0, write: 3.2}]"}]`
+	db, err := StringToMapList(str)
+	fmt.Println(err)
+	fmt.Printf("%+v\n", db)
 }
