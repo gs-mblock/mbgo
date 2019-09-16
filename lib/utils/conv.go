@@ -43,7 +43,7 @@ func ArrayInt64Contains(list []int64, item int64) bool {
 	return false
 }
 
-// StructToString :
+// StructToString : MapToString
 func StructToString(i interface{}) string {
 	out, err := json.Marshal(i)
 	if err != nil {
@@ -73,3 +73,12 @@ func StringToMapList(str string) ([]map[string]interface{}, error) {
 	//fmt.Println(m)
 	return m, nil
 }
+
+// MapToString :
+// func MapToString(m map[string]string) string {
+// 	b := new(bytes.Buffer)
+// 	for key, value := range m {
+// 		fmt.Fprintf(b, "%s=\"%s\"\n", key, value)
+// 	}
+// 	return b.String()
+// }

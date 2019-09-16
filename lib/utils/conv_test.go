@@ -102,3 +102,11 @@ func TestConvent_StringToMapList(t *testing.T) {
 	fmt.Println(err)
 	fmt.Printf("%+v\n", db)
 }
+
+func TestConvent_MapToString(t *testing.T) {
+	m := map[string]string{
+		"LOG_LEVEL": "DEBUG",
+		"API_KEY":   "12345678-1234-1234-1234-1234-123456789abc",
+	}
+	println(StructToString(m))
+}
