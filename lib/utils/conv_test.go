@@ -61,6 +61,50 @@ func Test_StringToInt64Array(t *testing.T) {
 	}
 }
 
+func Test2_interface(t *testing.T) {
+	type Bag struct {
+		Key string
+	}
+
+	type Bag2 struct {
+		Key int64
+	}
+
+	var b1 interface{}
+	var b2 interface{}
+
+	b1 = Bag{Key: "1"}
+	b2 = Bag2{Key: 0}
+	//获取interface{}中存放的数据类型
+	//方法一：
+	{ //判断是否是Bag类型  若不是则置0
+		b, ok := b1.(Bag)
+		fmt.Println("Bag类型   ：", ok, "数据", b)
+	}
+	{ //判断是否是Bag2类型  若不是则置0
+		b, ok := b2.(Bag2)
+		fmt.Println("Bag2类型：", ok, "数据", b)
+	}
+
+}
+
+func TestIn_interface(t *testing.T) {
+	var x interface{}
+	x = "2392"
+	vv := fmt.Sprintf("%v", x)
+
+	println("vv=", vv)
+	//println(InterfaceToInt64(x))
+
+	value, ok := x.(int)
+	value2, ok2 := x.(string)
+	println("ok:", ok)
+	println("value:", value)
+
+	println("ok2:", ok2)
+	println("value2=", value2)
+}
+
 func TestConversion_ArrayInt64Contains(t *testing.T) {
 	data1 := ArrayInt64Contains([]int64{1, 2, 3}, 3)
 	println("data1:", data1)
@@ -109,4 +153,30 @@ func TestConvent_MapToString(t *testing.T) {
 		"API_KEY":   "12345678-1234-1234-1234-1234-123456789abc",
 	}
 	println(StructToString(m))
+}
+
+func TestConvent_StringToMap2(t *testing.T) {
+	str1 := `[{"status": "success", "type": "masterInfo", "result": "[{read: 2.0, write: 1.2}, {read_mb: 4.0, write: 3.2}]"}]`
+	str2 := `{"status": "success", "type": "masterInfo"}`
+
+	// sec := map[string]interface{}{}
+	// if err := json.Unmarshal([]byte(str1), &sec); err != nil {
+	// 	panic(err)
+	// }
+	// fmt.Printf("%+v\n", sec)
+
+	//s := "a我cd"
+	s1 := string([]rune(str1)[:1])
+	fmt.Println(s1)
+	if s1 == "[" {
+		vv, _ := StringToMapList(str1)
+		fmt.Printf("%+v\n", vv)
+	}
+
+	s2 := string([]rune(str2)[:1])
+	fmt.Println(s2)
+	if s2 == "{" {
+		vv, _ := StringToMap(str2)
+		fmt.Printf("%+v\n", vv)
+	}
 }
