@@ -36,9 +36,10 @@ import (
 	"strconv"
 	"time"
 
+	"strings"
+
 	"github.com/gomodule/redigo/redis"
 	"gitlab.com/makeblock-common/mbgo/lib/cache"
-	"strings"
 )
 
 var (

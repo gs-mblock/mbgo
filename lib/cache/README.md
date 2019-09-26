@@ -16,7 +16,8 @@ First you must import it
 
 ``` go
 import (
-    "github.com/astaxie/beego/cache"
+    //"github.com/astaxie/beego/cache"
+    "gitlab.com/makeblock-common/mbgo/lib/cache"
 )
 
 Then init a Cache (example with memory adapter)

@@ -17,9 +17,19 @@ package redis
 import (
 	"testing"
 	"time"
-	"gitlab.com/makeblock-common/mbgo/lib/cache"
+
 	"github.com/gomodule/redigo/redis"
+	"gitlab.com/makeblock-common/mbgo/lib/cache"
 )
+
+func TestRedis_Cache(t *testing.T) {
+	bm, err := cache.NewCache("redis", `{"conn": "Makeblock123@localhost:6379"}`)
+	if err != nil {
+		println(err)
+		t.Error("init err")
+	}
+	println((bm))
+}
 
 func TestRedisCache(t *testing.T) {
 	bm, err := cache.NewCache("redis", `{"conn": "Makeblock123@localhost:6379"}`)
@@ -79,6 +89,8 @@ func TestRedisCache(t *testing.T) {
 	if v, _ := redis.String(bm.Get("astaxie"), err); v != "author" {
 		t.Error("get err")
 	}
+	v, _ := redis.String(bm.Get("astaxie"), nil)
+	println("astaxie:", v)
 
 	//test GetMulti
 	if err = bm.Put("astaxie1", "author1", timeoutDuration); err != nil {
