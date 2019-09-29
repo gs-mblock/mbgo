@@ -55,7 +55,7 @@ func Test_ArrayToString(t *testing.T) {
 }
 
 func Test_StringToInt64Array(t *testing.T) {
-	list := StringToInt64Array("1,2,3", ",")
+	list := StringToInt64Array("1,1,2,3,3", ",")
 	for i, v := range list {
 		println(i, "--", v)
 	}

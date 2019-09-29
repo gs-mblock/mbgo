@@ -14,7 +14,7 @@ func ArrayToString(list []int64, delim string) string {
 	//return strings.Trim(strings.Join(strings.Fields(fmt.Sprint(a)), delim), "[]")
 }
 
-// StringToInt64Array : ("1,2,3",",")
+// StringToInt64Array : ("1,2,3",","),去重了
 func StringToInt64Array(idString string, delim string) []int64 {
 	if idString == "" {
 		return []int64{}
@@ -23,7 +23,7 @@ func StringToInt64Array(idString string, delim string) []int64 {
 	s := strings.Split(idString, delim)
 	for _, v := range s {
 		intV, err := strconv.ParseInt(v, 10, 64)
-		if err == nil {
+		if err == nil && !ArrayInt64Contains(list, intV) {
 			list = append(list, intV)
 		}
 	}
