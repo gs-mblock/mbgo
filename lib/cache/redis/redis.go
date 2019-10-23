@@ -39,7 +39,7 @@ import (
 	"strings"
 
 	"github.com/gomodule/redigo/redis"
-	"gitlab.com/makeblock-common/mbgo/lib/cache"
+	"github.com/gs-mblock/mbgo/lib/cache"
 )
 
 var (

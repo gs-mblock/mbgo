@@ -19,7 +19,7 @@ import (
 	"time"
 
 	"github.com/gomodule/redigo/redis"
-	"gitlab.com/makeblock-common/mbgo/lib/cache"
+	"github.com/gs-mblock/mbgo/lib/cache"
 )
 
 func TestRedis_Cache(t *testing.T) {

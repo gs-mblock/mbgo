@@ -1,7 +1,7 @@
 // module mbgo
-module gitlab.com/makeblock-common/mbgo
+//module gitlab.com/makeblock-common/--mbgo
 
-// module github.com/gs-mblock/mbgo
+module github.com/gs-mblock/mbgo
 
 go 1.12
 

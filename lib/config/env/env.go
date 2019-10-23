@@ -21,7 +21,7 @@ import (
 	"os"
 	"strings"
 
-	"gitlab.com/makeblock-common/mbgo/lib/utils"
+	"github.com/gs-mblock/mbgo/lib/utils"
 )
 
 var env *utils.BeeMap
