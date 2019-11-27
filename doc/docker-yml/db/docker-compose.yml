@@ -37,7 +37,7 @@ services:
         ports:
           - '3306:3306'  #host物理直接映射端口为6606
         volumes:
-          - $HOME/db/docker/d1/mysql57:/var/lib/mysql
+          - $HOME/db/docker/d1/mysql57b:/var/lib/mysql
 
   # mysql8:
   #       #构建mysql镜像
@@ -66,11 +66,11 @@ services:
   #     volumes:
   #       - $HOME/db/docker/d1/mongodata:/data/db
 
-  # redis:
-  #     image: redis
-  #     #container_name: my_redis
-  #     command: redis-server --requirepass Makeblock123
-  #     ports:
-  #       - "6379:6379"
-  #     volumes:
-  #       - $HOME/db/docker/d1/redis:/data
+  redis:
+      image: redis
+      #container_name: my_redis
+      command: redis-server --requirepass Makeblock123
+      ports:
+        - "6379:6379"
+      volumes:
+        - $HOME/db/docker/d1/redis:/data

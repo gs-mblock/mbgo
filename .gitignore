@@ -1,5 +1,8 @@
-go.sum
-.vscode
+.idea/
+.vscode/
+.DS_Store
+
+#go.sum
 lib/logs/*.log
 build/
 # *.log
