@@ -8,6 +8,12 @@ import (
 	"time"
 )
 
+func TestInterfaceToString(t *testing.T) {
+	a := []string{"a", "b", "c"}
+	v := fmt.Sprintf("%v", a)
+	println(v)
+}
+
 func TestConvString2Other(t *testing.T) {
 	VString := "123"
 	//# string到int
