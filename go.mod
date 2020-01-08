@@ -22,9 +22,11 @@ require (
 	github.com/go-xorm/xorm v0.7.1
 	github.com/gogo/protobuf v1.2.1
 	github.com/gomodule/redigo v2.0.0+incompatible
+	github.com/gopherjs/gopherjs v0.0.0-20191106031601-ce3c9ade29de // indirect
 	github.com/gorilla/mux v1.7.3
 
 	github.com/shiena/ansicolor v0.0.0-20151119151921-a422bbe96644
+	github.com/smartystreets/assertions v1.0.1 // indirect
 	github.com/smartystreets/goconvey v1.6.4
 	gopkg.in/mgo.v2 v2.0.0-20180705113604-9856a29383ce
 )

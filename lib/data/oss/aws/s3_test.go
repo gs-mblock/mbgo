@@ -14,6 +14,7 @@ import (
 	. "github.com/smartystreets/goconvey/convey"
 )
 
+/*
 func TestS3(t *testing.T) {
 	Convey("连接到s3", t, func() {
 		sess := session.Must(session.NewSession(&aws.Config{
@@ -90,3 +91,4 @@ func TestS3(t *testing.T) {
 		})
 	})
 }
+*/
