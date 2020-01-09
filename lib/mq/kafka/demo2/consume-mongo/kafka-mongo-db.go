@@ -6,6 +6,7 @@ import (
 	"github.com/mongodb/mongo-go-driver/mongo"
 	"github.com/segmentio/kafka-go"
 	"log"
+	"time"
 )
 
 func getMongoCollection(mongoURL, dbName, collectionName string) *mongo.Collection {
@@ -42,7 +43,7 @@ func main() {
 	// get Mongo db Collection using environment variables.
 	mongoURL := "mongodb://admin:1234qwer@localhost:27017" //os.Getenv("mongoURL")
 	dbName := "example_db"//os.Getenv("dbName")
-	collectionName := "example_coll"//os.Getenv("collectionName")
+	collectionName := "example_coll2"//os.Getenv("collectionName")
 	collection := getMongoCollection(mongoURL, dbName, collectionName)
 
 	// get kafka reader using environment variables.
@@ -60,13 +61,34 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
-		insertResult, err := collection.InsertOne(context.Background(), msg)
+		db := new(MqMessageModel)
+		db.Offset = msg.Offset
+		db.Content = msg.Value
+		timeNow := time.Now().Unix()
+		db.CreatedTime = timeNow
+		db.ModifiedTime =timeNow
+		db.ID = timeNow
+		db.Topic = msg.Topic
+		//insertResult, err := collection.InsertOne(context.Background(), msg)
+		insertResult, err := collection.InsertOne(context.Background(), db)
 		if err != nil {
 			log.Fatal(err)
 		}
-
 		fmt.Println("Inserted a single document: ", insertResult.InsertedID)
 	}
+}
+
+type MqMessageModel struct {
+	ID  int64 `json:"id" `
+	CreatedTime  int64 `json:"createdTime" `
+	ModifiedTime int64 `json:"modifiedTime" `
+	Topic string `json:"topic" `
+	Offset int64 `json:"offset" `
+	Content []byte `json:"content" `
+}
+
+func CheckData(checkID  int64, s *mongo.Collection)  {
+	//s.FindOne(context.Background(),  )
 }
 
 // go run lib/mq/kafka/demo2/consume-mongo/kafka-mongo-db.go

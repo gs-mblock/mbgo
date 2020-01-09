@@ -2,11 +2,14 @@ package main
 
 import (
 	"fmt"
+	"github.com/gs-mblock/mbgo/lib/distribution/sonyflake"
 	"io/ioutil"
 	"log"
 	"net/http"
+	"strconv"
+
 	//"os"
-	kafka "github.com/segmentio/kafka-go"
+	"github.com/segmentio/kafka-go"
 )
 
 func producerHandler(kafkaWriter *kafka.Writer) func(http.ResponseWriter, *http.Request) {
@@ -17,14 +20,16 @@ func producerHandler(kafkaWriter *kafka.Writer) func(http.ResponseWriter, *http.
 		}
 		log.Printf("body %+v\n",string(body))
 		msg := kafka.Message{
-			Key:   []byte(fmt.Sprintf("address-%s", req.RemoteAddr)),
+			//Key:   []byte(fmt.Sprintf("address-%s", req.RemoteAddr)),
+			//Key: []byte( strconv.FormatInt( dbid.DataID(1,0),10)),
+			Key: []byte( strconv.FormatInt( sonyflake.GetID(),10)),
 			Value: body,
 		}
 		err = kafkaWriter.WriteMessages(req.Context(), msg)
-
 		if err != nil {
 			wrt.Write([]byte(err.Error()))
-			log.Fatalln(err)
+			//log.Fatalln(err)
+			log.Printf("[ERROR]producerHandler: %+v\n",err)
 		}
 	})
 }
