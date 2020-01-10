@@ -32,7 +32,7 @@ func TestFindByName(t *testing.T) {
 
 // U update
 func TestUpdate(t *testing.T) {
-	p := Person{"Jack_Green", "121212122"}
+	p := Person{"Jack_Green", "121212122000"}
 	update(p, col)
 	ub := findByName(p.Name, col)
 	fmt.Println("Update Result")

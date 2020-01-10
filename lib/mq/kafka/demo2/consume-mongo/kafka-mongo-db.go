@@ -3,6 +3,8 @@ package main
 import (
 	"context"
 	"fmt"
+	"github.com/gs-mblock/mbgo/lib/utils"
+	"github.com/mongodb/mongo-go-driver/bson"
 	"github.com/mongodb/mongo-go-driver/mongo"
 	"github.com/segmentio/kafka-go"
 	"log"
@@ -67,14 +69,14 @@ func main() {
 		timeNow := time.Now().Unix()
 		db.CreatedTime = timeNow
 		db.ModifiedTime =timeNow
-		db.ID = timeNow
+		db.ID = utils.BytesToInt64(msg.Key) //binary.BigEndian.Uint64( msg.Key)
 		db.Topic = msg.Topic
 		//insertResult, err := collection.InsertOne(context.Background(), msg)
 		insertResult, err := collection.InsertOne(context.Background(), db)
 		if err != nil {
 			log.Fatal(err)
 		}
-		fmt.Println("Inserted a single document: ", insertResult.InsertedID)
+		fmt.Println("Inserted a single document: ", insertResult.InsertedID,db.ID)
 	}
 }
 
@@ -88,7 +90,8 @@ type MqMessageModel struct {
 }
 
 func CheckData(checkID  int64, s *mongo.Collection)  {
-	//s.FindOne(context.Background(),  )
+	v:= s.FindOne(context.Background(), bson.D{{"id", 54116309914382037}}, )
+	log.Printf("%+v\n",v)
 }
 
 // go run lib/mq/kafka/demo2/consume-mongo/kafka-mongo-db.go

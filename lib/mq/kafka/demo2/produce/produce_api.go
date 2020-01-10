@@ -3,11 +3,10 @@ package main
 import (
 	"fmt"
 	"github.com/gs-mblock/mbgo/lib/distribution/sonyflake"
+	"github.com/gs-mblock/mbgo/lib/utils"
 	"io/ioutil"
 	"log"
 	"net/http"
-	"strconv"
-
 	//"os"
 	"github.com/segmentio/kafka-go"
 )
@@ -21,8 +20,7 @@ func producerHandler(kafkaWriter *kafka.Writer) func(http.ResponseWriter, *http.
 		log.Printf("body %+v\n",string(body))
 		msg := kafka.Message{
 			//Key:   []byte(fmt.Sprintf("address-%s", req.RemoteAddr)),
-			//Key: []byte( strconv.FormatInt( dbid.DataID(1,0),10)),
-			Key: []byte( strconv.FormatInt( sonyflake.GetID(),10)),
+			Key: utils.Int64ToBytes(sonyflake.GetID()),
 			Value: body,
 		}
 		err = kafkaWriter.WriteMessages(req.Context(), msg)
