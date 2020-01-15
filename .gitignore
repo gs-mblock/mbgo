@@ -6,3 +6,11 @@
 lib/logs/*.log
 build/
 # *.log
+
+# ss
+#lib/data/oss/aliyun/
+client_sts_test.go
+#lib/data/oss/aliyun/
+aliyun_test.go
+#lib/logs/
+smtp_test.go

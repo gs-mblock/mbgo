@@ -50,13 +50,14 @@ func TestSmtp_qq(t *testing.T) {
 	setMail()
 }
 
+// 查看石墨：环境-ci-cd
 func setMail() {
 	// 邮箱地址
-	UserEmail := "37907909@qq.com"
+	UserEmail := "8766907909@qq.com"
 	// 端口号，:25也行
 	MailSMTPPort := ":587"
 	//邮箱的授权码，去邮箱自己获取
-	MailPassword := "axs89864jdqhpfjzmzywbhda"
+	MailPassword := "ghj888axs89864jdqhpfjzmzywbhda64"
 	// 此处填写SMTP服务器
 	MailSMTPHost := "smtp.qq.com"
 	auth := smtp.PlainAuth("", UserEmail, MailPassword, MailSMTPHost)
