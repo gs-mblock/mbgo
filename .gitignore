@@ -9,11 +9,8 @@ build/
 
 # ss
 #lib/data/oss/aliyun/
-client_sts_test.go
 #lib/data/oss/aliyun/
-aliyun_test.go
 #lib/logs/
-smtp_test.go
 aliyun_110_test.go
 client_sts_110_test.go
 smtp_110_test.go
